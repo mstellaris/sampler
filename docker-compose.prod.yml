@@ -1,0 +1,17 @@
+services:
+  backend:
+    image: ghcr.io/mstellaris/sampler-backend:latest
+    volumes:
+      - bookmarks-data:/data
+    restart: unless-stopped
+
+  frontend:
+    image: ghcr.io/mstellaris/sampler-frontend:latest
+    ports:
+      - "9090:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  bookmarks-data:
