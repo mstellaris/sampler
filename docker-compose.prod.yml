@@ -1,6 +1,7 @@
 services:
   backend:
     image: ghcr.io/mstellaris/sampler-backend:latest
+    env_file: ./.env
     volumes:
       - bookmarks-data:/data
     restart: unless-stopped
