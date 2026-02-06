@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-  max-width: 600px;
+  max-width: 750px;
   margin: 0 auto;
 }
 
@@ -55,12 +55,12 @@ h1 {
   padding: 0.75rem 1rem;
   margin-bottom: 0.5rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 0.75rem;
 }
 
 #bookmark-list li .info {
+  flex: 1;
   min-width: 0;
   overflow: hidden;
 }
@@ -80,6 +80,18 @@ h1 {
   font-size: 0.8rem;
   color: #888;
   margin-top: 0.2rem;
+}
+
+.thumbnail {
+  width: 120px;
+  height: 80px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.thumbnail.placeholder {
+  background: #eee;
 }
 
 #bookmark-list li button.delete {

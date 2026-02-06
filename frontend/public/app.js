@@ -9,6 +9,9 @@ async function loadBookmarks() {
   list.innerHTML = "";
   for (const b of bookmarks) {
     const li = document.createElement("li");
+    const screenshotHtml = b.screenshot
+      ? `<img class="thumbnail" src="/api/screenshots/${b.id}" alt="Preview">`
+      : `<div class="thumbnail placeholder"></div>`;
     li.innerHTML = `
       <div class="info">
         <a href="${escapeHtml(b.url)}" target="_blank" rel="noopener">
@@ -16,6 +19,7 @@ async function loadBookmarks() {
         </a>
         <div class="meta">${new Date(b.created_at).toLocaleString()}</div>
       </div>
+      ${screenshotHtml}
       <button class="delete" title="Delete">&times;</button>
     `;
     li.querySelector(".delete").addEventListener("click", () => deleteBookmark(b.id));
